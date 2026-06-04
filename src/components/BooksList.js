@@ -31,18 +31,22 @@ const BooksList = () => {
 
   return (
     <div>
-      <label htmlFor="sortBy">Sort by:</label>
-      <select id="sortBy" value={sortBy} onChange={handleSortBy}>
-        <option value="title">Title</option>
-        <option value="author">Author</option>
-        <option value="publisher">Publisher</option>
-      </select>
+      <div>
+        <label htmlFor="sortBy">Sort by:</label>
+        <select id="sortBy" value={sortBy} onChange={handleSortBy}>
+          <option value="title">Title</option>
+          <option value="author">Author</option>
+          <option value="publisher">Publisher</option>
+        </select>
+      </div>
 
-      <label htmlFor="order">Order:</label>
-      <select id="order" value={order} onChange={handleOrder}>
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
-      </select>
+      <div>
+        <label htmlFor="order">Order:</label>
+        <select id="order" value={order} onChange={handleOrder}>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
 
       <table>
         <thead>
