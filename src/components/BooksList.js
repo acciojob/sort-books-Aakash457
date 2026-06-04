@@ -54,7 +54,7 @@ const BooksList = () => {
             <th>Title</th>
             <th>Author</th>
             <th>Publisher</th>
-            <th>Description</th>
+            <th>ISBN</th>
           </tr>
         </thead>
         <tbody>
@@ -64,7 +64,7 @@ const BooksList = () => {
                 <td>{book.title}</td>
                 <td>{book.author}</td>
                 <td>{book.publisher}</td>
-                <td>{book.description}</td>
+                <td>{book.primary_isbn13}</td>
               </tr>
             ))}
         </tbody>
