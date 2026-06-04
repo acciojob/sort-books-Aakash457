@@ -31,19 +31,40 @@ const BooksList = () => {
 
   return (
     <div>
-      <label htmlFor="sortBy">Sort By</label>
+      <label htmlFor="sortBy">Sort by:</label>
       <select id="sortBy" value={sortBy} onChange={handleSortBy}>
         <option value="title">Title</option>
         <option value="author">Author</option>
         <option value="publisher">Publisher</option>
       </select>
 
-      <label htmlFor="order">Order</label>
+      <label htmlFor="order">Order:</label>
       <select id="order" value={order} onChange={handleOrder}>
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
       </select>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+          </tr>
+        </thead>
+        <tbody>
+          {books &&
+            books.map((book) => (
+              <tr key={book.id}>
+                <td>{book.title}</td>
+                <td>{book.author}</td>
+                <td>{book.publisher}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
     </div>
   );
 };
+
 export default BooksList;
