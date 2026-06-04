@@ -8,7 +8,7 @@ export const fetchBooks = () => {
     dispatch({ type: FETCH_BOOKS_REQUEST });
 
     const API_URL =
-      "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=nVE2D4emmo4ZAS5lbqY4zdSBXjT6V3Tzv7DjtAuhiPsbW9Nwc";
+      "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=nVE2D4emmo4ZAS5lbqY4zdSBXjT6V3Tzv7DjtAuhiPsbW9Nw";
 
     fetch(API_URL)
       .then(function (response) {
