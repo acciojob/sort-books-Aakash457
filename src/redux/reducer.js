@@ -13,6 +13,16 @@ const initialState = {
   order: "asc",
 };
 
+const sortBooksHelper = (books, sortBy, order) => {
+  return [...books].sort((a, b) => {
+    const first = (a[sortBy] || "").toLowerCase();
+    const second = (b[sortBy] || "").toLowerCase();
+    if (first < second) return order === "asc" ? -1 : 1;
+    if (first > second) return order === "asc" ? 1 : -1;
+    return 0;
+  });
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_BOOKS_REQUEST:
@@ -26,7 +36,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        books: action.payload,
+        books: sortBooksHelper(action.payload, state.sortBy, state.order),
       };
 
     case FETCH_BOOKS_FAILURE:
@@ -38,19 +48,9 @@ const reducer = (state = initialState, action) => {
 
     case SORT_BOOKS: {
       const { sortBy, order } = action.payload;
-
-      const sortedBooks = [...state.books].sort((a, b) => {
-        const first = (a[sortBy] || "").toLowerCase();
-        const second = (b[sortBy] || "").toLowerCase();
-
-        if (first < second) return order === "asc" ? -1 : 1;
-        if (first > second) return order === "asc" ? 1 : -1;
-        return 0;
-      });
-
       return {
         ...state,
-        books: sortedBooks,
+        books: sortBooksHelper(state.books, sortBy, order),
         sortBy,
         order,
       };
