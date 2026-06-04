@@ -31,42 +31,29 @@ const BooksList = () => {
   if (loading) return <h2>Loading...</h2>;
   if (error) return <h2>{error}</h2>;
 
-  return (
-    <div>
-      <select value={sortBy} onChange={handleSortBy}>
-        <option value="title">Title</option>
-        <option value="author">Author</option>
-        <option value="publisher">Publisher</option>
-      </select>
+ return (
+  <div>
+    <label htmlFor="sortBy">Sort By</label>
+    <select
+      id="sortBy"
+      value={sortBy}
+      onChange={handleSortBy}
+    >
+      <option value="title">Title</option>
+      <option value="author">Author</option>
+      <option value="publisher">Publisher</option>
+    </select>
 
-      <select value={order} onChange={handleOrder}>
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
-      </select>
-
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Publisher</th>
-            <th>ISBN</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {books.map((book) => (
-            <tr key={book.primary_isbn13}>
-              <td>{book.title}</td>
-              <td>{book.author}</td>
-              <td>{book.publisher}</td>
-              <td>{book.primary_isbn13}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+    <label htmlFor="order">Order</label>
+    <select
+      id="order"
+      value={order}
+      onChange={handleOrder}
+    >
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+  </div>
+);
 
 export default BooksList;

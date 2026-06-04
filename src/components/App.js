@@ -4,7 +4,7 @@ import BooksList from "./BooksList";
 function App() {
   return (
     <div>
-      <h1>Book Sorting App</h1>
+      <h1>Books List</h1>
       <BooksList />
     </div>
   );
